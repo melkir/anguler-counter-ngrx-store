@@ -31,7 +31,7 @@ import { CounterActions } from './counter.actions';
   `
 })
 export class CounterComponent {
-  private currentValue$: Observable<number>;
+  public currentValue$: Observable<number>;
 
   constructor(counterService: CounterService, public actions: CounterActions) {
     this.currentValue$ = counterService.getCurrentValue();
