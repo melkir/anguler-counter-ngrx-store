@@ -5,8 +5,30 @@ import { CounterActions } from './counter.actions';
 
 @Component({
   selector: 'app-counter',
-  templateUrl: './counter.component.html',
-  styleUrls: ['./counter.component.css']
+  template: `
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <p class="subtitle">
+          Counter: {{currentValue$ | async}}
+        </p>
+        <a class="button is-primary is-outlined" (click)="actions.increment()">
+          <span class="icon is-small">
+            <i class="fa fa-plus"></i>
+          </span>
+        </a>
+        <a class="button is-primary is-outlined" (click)="actions.decrement()">
+          <span class="icon is-small">
+            <i class="fa fa-minus"></i>
+          </span>
+        </a>
+        <a class="button is-danger is-outlined" (click)="actions.reset()">
+          <span class="icon is-small">
+            <i class="fa fa-undo"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+  `
 })
 export class CounterComponent {
   private currentValue$: Observable<number>;
